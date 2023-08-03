@@ -1,0 +1,39 @@
+\\Matrix_Multiplication and accompanying techniques for work-problem generation
+
+# Let's generate some matrices for multiplication problems
+{import numpy as np
+import random
+
+# Helper function to generate a random matrix of given size
+def generate_matrix(m, n, max_value=10):
+    return np.random.randint(max_value, size=(m, n))
+
+# Generate pairs of matrices for multiplication problems
+problems = []
+for i in range(10):  # since we want 20 problems and each problem has 2 parts (A and B), we iterate 10 times
+    # For increasing difficulty, we increase the size of matrices with every iteration
+    if i < 2:  # Easy: 2x2 matrices
+        A = generate_matrix(2, 2)
+        B = generate_matrix(2, 2)
+    elif i < 4:  # Medium: 3x3 matrices
+        A = generate_matrix(3, 3)
+        B = generate_matrix(3, 3)
+    elif i < 6:  # Hard: 4x4 matrices
+        A = generate_matrix(4, 4)
+        B = generate_matrix(4, 4)
+    elif i < 8:  # Very hard: 5x5 matrices
+        A = generate_matrix(5, 5)
+        B = generate_matrix(5, 5)
+    else:  # Extremely hard: 6x6 matrices
+        A = generate_matrix(6, 6)
+        B = generate_matrix(6, 6)
+    
+    problems.append((A, B))
+
+problems}
+
+\\
+# Let's calculate the products of all the matrices
+{answers = [np.dot(A, B) for A, B in problems]
+
+answers}
